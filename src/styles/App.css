@@ -1,0 +1,22 @@
+:root {
+    --blue: #20d8da;
+    --white: #fff;
+    --gray: #545454;
+    --light-gray: #747373;  
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 1px;
+}
+
+.container{
+    width: 1110px;
+    max-width: 95%;
+    margin: 0 auto;
+}
