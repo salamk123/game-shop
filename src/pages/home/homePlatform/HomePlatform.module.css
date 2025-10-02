@@ -1,0 +1,20 @@
+.platform{
+    margin-top: 100px;
+}
+
+
+.platform__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 135px;
+}
+
+
+.platform__inner__line{
+    height: 100%;
+    width: 1px;
+    background-color: #CDCDCD;
+}
+
+

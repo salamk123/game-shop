@@ -1,0 +1,14 @@
+.platform__card{
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.platform__card__img{
+    width: auto;
+    margin: 0 auto;
+    height: 55px;
+}
+

@@ -1,0 +1,27 @@
+.games {
+    margin-top: 100px;
+}
+
+.games__title{
+    font-size: 36px;
+}
+
+
+.games__inner{
+    margin-top: 70px;
+    display: flex;
+    height: 590px;
+}
+
+
+.games__inner__list{
+    width: 370px;
+    overflow: scroll;
+}
+
+
+.games__inner__img{
+    width: 740px;
+    height: 590px;
+}
+
