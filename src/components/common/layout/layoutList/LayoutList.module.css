@@ -1,0 +1,21 @@
+.layout__list{
+    width: 210px;
+}
+
+.layout__list__title{
+    color: var(--white);
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.layout__list__item{
+    font-size: 14px;
+    color: #808080;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.layout__list__item:hover{
+    color: var(--blue);
+    transition: all 0.5s ease;
+}

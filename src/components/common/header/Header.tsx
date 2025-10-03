@@ -36,10 +36,10 @@ const Header: FC = () => {
                 <div className={cl.header__inner}>
                     <nav className={cl.header__inner__nav}>
                         <HeaderLinks>Home</HeaderLinks>
-                        <HeaderLinks>Games</HeaderLinks>
-                        <HeaderLinks>Pages</HeaderLinks>
-                        <HeaderLinks>Articles</HeaderLinks>
-                        <HeaderLinks>Reviews</HeaderLinks>
+                        <HeaderLinks>Games <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
+                        <HeaderLinks>Pages <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
+                        <HeaderLinks>Articles <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
+                        <HeaderLinks>Reviews <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
                         <HeaderLinks>Contact</HeaderLinks>
                     </nav>
 

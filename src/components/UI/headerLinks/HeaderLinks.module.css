@@ -1,5 +1,5 @@
 .header__link{
-    font-size: 18px;
+    font-size: 16px;
     color: var(--gray);
     text-decoration: none;
     display: flex;
@@ -7,4 +7,12 @@
     align-items: center;
     font-weight: 500;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
+
+
+.header__link:hover{
+    color: var(--blue);
+    transition: all 0.5s ease;
+}
+
