@@ -1,8 +1,14 @@
 import React, { FC } from "react";
 import cl from './HomeGames.module.css';
 import GamesCard from "./gamesCard/GamesCard";
+import { IGame } from "../../../types/types";
 
-const HomeGames: FC = () => {
+interface HomeGamesProps {
+    games: IGame[]
+}
+
+const HomeGames: FC<HomeGamesProps> = ({games}) => {
+
     return(
         <section className={cl.games}>
             <div className="container">
@@ -10,10 +16,14 @@ const HomeGames: FC = () => {
 
                 <div className={cl.games__inner}>
                     <div className={cl.games__inner__list}>
-                        <GamesCard/>
+                        
+                        {games.map(game => 
+                            <GamesCard rating={game.metacritic} name={game.name} img={game.background_image} key={game.background_image} platforms={game?.platforms}/>
+                        )}
+                        
                     </div>
 
-                    <img className={cl.games__inner__img}/>
+                    <img src={games?.[0]?.['background_image']} className={cl.games__inner__img}/>
                 </div>
             </div>
         </section>

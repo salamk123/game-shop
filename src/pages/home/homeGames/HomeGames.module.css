@@ -1,5 +1,6 @@
 .games {
     margin-top: 100px;
+    margin-bottom: 100px;
 }
 
 .games__title{
@@ -10,18 +11,34 @@
 .games__inner{
     margin-top: 70px;
     display: flex;
-    height: 590px;
+    height: 440px;
 }
 
 
 .games__inner__list{
     width: 370px;
-    overflow: scroll;
+    overflow: auto; 
+    margin-right: 1px;   
+}
+
+.games__inner__list::-webkit-scrollbar {
+  width: 2px;
+}
+
+.games__inner__list::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.games__inner__list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: var(--blue);
 }
 
 
 .games__inner__img{
     width: 740px;
-    height: 590px;
+    height: 440px;
 }
 
