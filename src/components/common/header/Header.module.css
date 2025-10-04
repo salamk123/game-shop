@@ -39,6 +39,7 @@
 
 }
 
+
 .header__inner__nav__item__img{
     margin-left: 7px;
     width: 12px;
@@ -55,7 +56,3 @@
 }
 
 
-.header__inner__media__item{
-    width: auto;
-    height: 14.4px;
-}

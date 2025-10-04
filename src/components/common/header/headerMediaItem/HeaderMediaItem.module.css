@@ -1,0 +1,10 @@
+.media__item{
+    width: 16px;
+    height: 14.4px;
+    position: relative;
+}
+
+.media__item__img{
+    width: auto;
+    height: 14.4px;
+}

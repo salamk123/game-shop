@@ -11,13 +11,36 @@ import facebook from './headerImg/facebook.png';
 import twitter from './headerImg/twitter.png';
 import vk from './headerImg/vk.png';
 import arrow from './headerImg/arrow.png';
+import HeaderNavItem from "./headerNavItem/HeaderNavItem";
+import HeaderModal from "../../UI/headerModal/HeaderModal";
+import HeaderMediaItem from "./headerMediaItem/HeaderMediaItem";
 
 
 
 
 
 const Header: FC = () => {
+    const [modal, setModal] = useState<boolean>(false);
+    const [modalID, setModalID] = useState<number | null>(null);
     
+    const [itemModal, setItemModal] = useState<boolean>(false);
+    const [itemID, setItemID] = useState<number | null>(null);
+
+    const handleMouseOverModal = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        setModal(true);
+    }
+
+    const handleMouseOutModal = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        setModal(false)
+    } 
+
+    const handleMouseOverItem = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        setItemModal(true);
+    }
+
+    const handleMouseOutItem = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        setItemModal(false);
+    } 
 
     return(
         <header className={cl.header}>
@@ -35,21 +58,21 @@ const Header: FC = () => {
 
                 <div className={cl.header__inner}>
                     <nav className={cl.header__inner__nav}>
-                        <HeaderLinks>Home</HeaderLinks>
-                        <HeaderLinks>Games <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
-                        <HeaderLinks>Pages <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
-                        <HeaderLinks>Articles <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
-                        <HeaderLinks>Reviews <img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderLinks>
+                        <HeaderLinks>Contact</HeaderLinks>
+                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={1} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Games"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={2} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Home','Articles', 'Single Articles', 'Game Reviews', 'Single Game Reviewe', 'Contact']} linkName="Pages"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={3} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Articles', 'Single Articles']} linkName="Articles"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={4} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Reviews"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
                         <HeaderLinks>Contact</HeaderLinks>
                     </nav>
 
                     <div className={cl.header__inner__media}>
-                        <img src={telegramm} className={cl.header__inner__media__item}/>
-                        <img src={instagram} className={cl.header__inner__media__item}/>
-                        <img src={pinterest} className={cl.header__inner__media__item}/>
-                        <img src={vk} className={cl.header__inner__media__item}/>
-                        <img src={twitter} className={cl.header__inner__media__item}/>
-                        <img src={facebook} className={cl.header__inner__media__item}/>
+                        <HeaderMediaItem id={1} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={telegramm} name={"telegramm"}/>
+                        <HeaderMediaItem id={2} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={instagram} name={"instagram"}/>
+                        <HeaderMediaItem id={3} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={pinterest} name={"pinterest"}/>
+                        <HeaderMediaItem id={4} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={vk} name={'vk'}/>
+                        <HeaderMediaItem id={5} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={twitter} name={'twitter'}/>
+                        <HeaderMediaItem id={6} itemModal={itemModal} itemID={itemID} onMouseOver={handleMouseOverItem} onMouseOut={handleMouseOutItem} setItemID={setItemID} img={facebook} name={"facebook"}/>
                     </div>
                 </div>
             </div>
