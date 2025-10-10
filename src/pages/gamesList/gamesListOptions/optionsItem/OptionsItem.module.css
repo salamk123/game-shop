@@ -1,0 +1,14 @@
+.option__item{
+    font-size: 18px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--light-gray);
+    margin: 0 10px;
+}
+
+.option__item.active{
+    color: #383838;
+    border-bottom: 2px solid var(--blue);
+}

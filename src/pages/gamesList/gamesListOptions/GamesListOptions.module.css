@@ -1,0 +1,11 @@
+.options{
+    margin-top: 80px;
+
+}
+
+
+.options__inner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
