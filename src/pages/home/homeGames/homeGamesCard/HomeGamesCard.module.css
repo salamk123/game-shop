@@ -6,6 +6,12 @@
     padding: 20px 15px;
     background-color: #232323;
     margin-bottom: 1px;
+    transition: all 0.4s ease;
+}
+
+.games__card:hover{
+    background-color: var(--blue);
+    transition: all 0.4s ease;
 }
 
 
@@ -24,8 +30,9 @@
 
 .games__card__info__name{
     font-size: 14px;
-    margin-top: 7px;
+    margin-top: 10px;
     color: var(--white);
+    margin-left: 7px;
 }
 
 
@@ -51,4 +58,10 @@
     align-items: center;
     color: var(--white);
     background-color: var(--blue);
+    transition: all 0.4s ease;
+}
+
+.games__card:hover > .games__card__rating{
+    background-color: var(--black);
+    transition: all 0.4s ease;
 }

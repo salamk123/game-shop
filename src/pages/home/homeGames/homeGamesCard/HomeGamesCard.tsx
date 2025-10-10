@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import cl from './GamesCard.module.css';
+import cl from './HomeGamesCard.module.css';
 
 interface GamesCardProps {
     name: string,
@@ -8,11 +8,12 @@ interface GamesCardProps {
     platforms: {
         platform: {name: string},
     }[]
+    makeBackImg: (img: string) => void;
 }
 
-const GamesCard: FC<GamesCardProps> = ({name, img, rating, platforms}) => {
+const HomeGamesCard: FC<GamesCardProps> = ({name, img, rating, platforms, makeBackImg}) => {
     return(
-        <section className={cl.games__card}>
+        <section className={cl.games__card} onMouseOver={() => makeBackImg?.(img)}>
             <img src={img} className={cl.games__card__img}/>
 
             <div className={cl.games__card__info}>
@@ -30,4 +31,4 @@ const GamesCard: FC<GamesCardProps> = ({name, img, rating, platforms}) => {
 }
 
 
-export default GamesCard;
+export default HomeGamesCard;

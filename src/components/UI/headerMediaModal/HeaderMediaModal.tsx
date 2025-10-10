@@ -16,12 +16,12 @@ const HeaderMediaModal: FC<HeaderMediaModalProps> = ({id, itemModal, itemID, nam
     useEffect(() => {
         if (itemModal && (id === itemID)) {
             setIsActive(true)
-            const timer = setTimeout(() => {setIsAnimated(true)}, 200)
+            const timer = setTimeout(() => setIsAnimated(true), 100)
 
             return () => clearTimeout(timer);
         } else {
             setIsAnimated(false)
-            const timer = setTimeout(() => setIsActive(false), 200)
+            const timer = setTimeout(() => setIsActive(false), 100)
 
             return () => clearTimeout(timer);
         }

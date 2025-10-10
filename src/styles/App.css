@@ -22,4 +22,5 @@ body{
     width: 1110px;
     max-width: 95%;
     margin: 0 auto;
+    z-index: 1;
 }

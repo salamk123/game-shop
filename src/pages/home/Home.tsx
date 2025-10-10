@@ -21,9 +21,10 @@ const Home: FC = () => {
 
 
     return(
-        <div className={cl.Home}>
+        <div className={cl.home}>
             <HomePlatform/>
             <HomeGames games={games}/>
+
         </div>
     )
 }

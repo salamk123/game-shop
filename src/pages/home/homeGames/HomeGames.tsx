@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import cl from './HomeGames.module.css';
-import GamesCard from "./gamesCard/GamesCard";
+import HomeGamesCard from "./homeGamesCard/HomeGamesCard";
 import { IGame } from "../../../types/types";
 
 interface HomeGamesProps {
@@ -8,6 +8,20 @@ interface HomeGamesProps {
 }
 
 const HomeGames: FC<HomeGamesProps> = ({games}) => {
+    const [img, setImg] = useState<string | null>(games?.[0]?.['background_image']);
+
+    useEffect(() => {
+        if (games && games.length > 0 && games[0]?.background_image) {
+            setImg(games?.[0]?.['background_image'])
+        } else {
+            setImg(null)
+        }
+    }, [games])
+
+    const makeBackImg = (img: string) => {
+        setImg(img)
+    }
+
 
     return(
         <section className={cl.games}>
@@ -18,12 +32,12 @@ const HomeGames: FC<HomeGamesProps> = ({games}) => {
                     <div className={cl.games__inner__list}>
                         
                         {games.map(game => 
-                            <GamesCard rating={game.metacritic} name={game.name} img={game.background_image} key={game.background_image} platforms={game?.platforms}/>
+                            <HomeGamesCard makeBackImg={makeBackImg} rating={game.metacritic} name={game.name} img={game.background_image} key={game.background_image} platforms={game?.platforms}/>
                         )}
                         
                     </div>
 
-                    <img src={games?.[0]?.['background_image']} className={cl.games__inner__img}/>
+                    {img ? <img src={img} className={cl.games__inner__img}/> : <div>Загрузка данных</div>}
                 </div>
             </div>
         </section>

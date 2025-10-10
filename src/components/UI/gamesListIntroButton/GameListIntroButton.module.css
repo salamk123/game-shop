@@ -1,0 +1,19 @@
+.button{
+    width: 240px;
+    height: 96px;
+    font-size: 36px;
+    font-family: "Open Sans" sans-serif;
+    color: var(--white);
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.4s ease;
+    border: none;
+    border-left: 1px solid var(--blue);
+
+}
+
+
+.button.active{
+    border-left: 1px solid var(--white);
+    background-color: var(--blue);
+    transition: all 0.4s ease;
+}
