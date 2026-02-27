@@ -3,7 +3,7 @@ import React from "react";
 interface IPlatforms {
     platform: IPlatform,
     released_at: string,
-    requirements?: IRequire
+    requirements_ru?: IRequire
 }
 
 interface IPlatform {
