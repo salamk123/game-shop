@@ -6,7 +6,7 @@ import HeaderModal from "../../../UI/headerModal/HeaderModal";
 interface HeaderNavItemProps {
     linkName: string,
     children?: React.ReactNode,
-    onMouseOver?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+    onMouseOver?: () => void;
     onMouseOut?: (event: React.MouseEvent<HTMLElement, MouseEvent>) => void; 
     id: number,
     modalID?: number | null;
@@ -18,7 +18,7 @@ interface HeaderNavItemProps {
 
 const HeaderNavItem: FC<HeaderNavItemProps> = ({linkName, children, onMouseOver, onMouseOut, id, modal, modalID, setModalID, listLinks}) => {
     const handleOverEv = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
-        onMouseOver?.(event)
+        onMouseOver?.()
         setModalID?.(id)
         console.log("setModalID: ", modalID, 'id: ', id)
     }

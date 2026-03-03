@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import cl from './HomeGames.module.css';
 import HomeGamesCard from "./homeGamesCard/HomeGamesCard";
 import { IGame } from "../../../types/types";
+import Loader from "../../../components/UI/loader/Loader";
 
 interface HomeGamesProps {
     games: IGame[]
@@ -37,7 +38,7 @@ const HomeGames: FC<HomeGamesProps> = ({games}) => {
                         
                     </div>
 
-                    {img ? <img src={img} className={cl.games__inner__img}/> : <div>Загрузка данных</div>}
+                    {img ? <img src={img} className={cl.games__inner__img}/> : <Loader/>}
                 </div>
             </div>
         </section>

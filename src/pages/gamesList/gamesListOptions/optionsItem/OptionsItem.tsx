@@ -1,20 +1,23 @@
 import React, { FC, useState } from "react";
 import cl from './OptionsItem.module.css';
+import { click } from "@testing-library/user-event/dist/click";
 
 interface OptionsItemProps {
-    name: string
+    name: string,
+    currentOption: string,
+    setCurrentOption: React.Dispatch<string>
 }
 
-const OptionsItem: FC<OptionsItemProps> = ({name}) => {
-    const [isOption, setIsOption] = useState<string>('Рекомендуем');
-    const clName: string[] = [cl.option];
+const OptionsItem: FC<OptionsItemProps> = ({name, currentOption, setCurrentOption}) => {
+    const clName: string[] = [cl.option__item];
 
-    if (isOption === name) {
-        clName.push(cl.active)
+    if (currentOption === name) {
+        clName.push(cl.active)  
     }
 
+
     return(
-        <div className={clName.join(' ')} onClick={() => setIsOption(name)}>{name}</div>
+        <div className={clName.join(' ')} onClick={() => setCurrentOption(name)}>{name}</div>
     )
 }
 

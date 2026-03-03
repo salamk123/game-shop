@@ -9,20 +9,60 @@ import { useFetching } from "../../hooks/useFetching";
 
 
 const GamesList: FC = () => {
-    const [games, SetGames] = useState<IGame[]>([])
-    const [fetchGames, isGamesLoading, gamesError] = useFetching( async () => {
-        const response = await Games.getAll();
-        SetGames(response.slice(0, 7));
-    })  
+    const [games, SetGames] = useState<IGame[]>([]);
+    const [recom, setRecom] = useState<IGame[]>([]);
+    const [popular, setPopular] = useState<IGame[]>([]);
+    const [special, setSpecial] = useState<IGame[]>([]);
+
+    const [fetchRecom, isRecomLoading, recomError] = useFetching( async () => {
+        const response = await Games.getRecom();
+        setRecom(response.slice(0, 7));
+    })
+
+    const [fetchPopular, isPopularLoading, popularError] = useFetching( async () => {
+        const response = await Games.getPopular();
+        setPopular(response.slice(0, 7));
+    })
+
+    const [fetchSpecial, isSpecialLoading, specialError] = useFetching( async () => {
+        const response = await Games.getSpecial();
+        setSpecial(response.slice(0, 7));
+    })
 
     useEffect(() => {
-        fetchGames();
+        fetchPopular();
+        fetchRecom();
+        fetchSpecial();
     }, [])
+
+    interface IGameList {
+        "Рекомендуем": IGame[],
+        "Лидеры продаж": IGame[],
+        "Специальные предложения": IGame[]
+    }
+
+    const gamesList: IGameList = {
+        "Рекомендуем": recom,
+        "Лидеры продаж": popular,
+        "Специальные предложения": special
+
+    }
+    const changeGames = (option: string) => {
+        if (option === 'Рекомендуем') {
+            SetGames(gamesList?.[option]);
+        } else if (option === 'Лидеры продаж'){
+            SetGames(gamesList?.[option]);
+        } else if (option === 'Специальные предложения'){
+            SetGames(gamesList?.[option]);
+        }
+    }
+
+
 
     return(
         <div className={cl.games__list}>
             <GamesListIntro/>
-            <GamesListOptions/>
+            <GamesListOptions changeGames={changeGames}/>
             <GameListCards games={games}/>
         </div>
     )

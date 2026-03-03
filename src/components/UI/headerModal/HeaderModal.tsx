@@ -24,13 +24,15 @@ const HeaderModal: FC<HeaderModalProps> = ({listLinks, modal, id, modalID}) => {
                 setIsAnimated(true)
             }, 100)
 
-            return () => clearTimeout(timer)
+            
         } else {
             setIsAnimated(false);
 
             const timer = setTimeout(() => {
                 setIsActive(false);
             })
+
+            
         }
     }, [modal, modalID, id])
 
