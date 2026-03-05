@@ -4,11 +4,12 @@ import OptionsItem from "./optionsItem/OptionsItem";
 import { IGame } from "../../../types/types";
 
 
-interface IGameListOprion {
-    changeGames: (option: string) => void; 
+interface GameListOprion {
+    changeGames: (option: string) => void;
+    setGamesState: React.Dispatch<boolean>; 
 }
 
-const GamesListOptions: FC<IGameListOprion> = ({changeGames}) => {
+const GamesListOptions: FC<GameListOprion> = ({changeGames, setGamesState}) => {
     const [currentOptions, setCurrentOption] = useState<string>('Рекомендуем');
     changeGames(currentOptions);
 
@@ -16,9 +17,9 @@ const GamesListOptions: FC<IGameListOprion> = ({changeGames}) => {
         <div className={cl.options}>
             <div className="container">
                 <div className={cl.options__inner}>
-                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} name='Рекомендуем'/>
-                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} name='Лидеры продаж'/>
-                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} name='Специальные предложения'/>
+                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} setGamesState={setGamesState} name='Рекомендуем'/>
+                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} setGamesState={setGamesState} name='Лидеры продаж'/>
+                    <OptionsItem currentOption={currentOptions} setCurrentOption={setCurrentOption} setGamesState={setGamesState} name='Специальные предложения'/>
                 </div>
             </div>
         </div>

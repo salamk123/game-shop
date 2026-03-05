@@ -13,6 +13,7 @@ const GamesList: FC = () => {
     const [recom, setRecom] = useState<IGame[]>([]);
     const [popular, setPopular] = useState<IGame[]>([]);
     const [special, setSpecial] = useState<IGame[]>([]);
+    const [gamesState, setGamesState] = useState<boolean>(false);
 
     const [fetchRecom, isRecomLoading, recomError] = useFetching( async () => {
         const response = await Games.getRecom();
@@ -47,6 +48,11 @@ const GamesList: FC = () => {
         "Специальные предложения": special
 
     }
+
+    const resetGames = (callback: () => void): void => {
+        callback();
+    }
+
     const changeGames = (option: string) => {
         if (option === 'Рекомендуем') {
             SetGames(gamesList?.[option]);
@@ -55,6 +61,7 @@ const GamesList: FC = () => {
         } else if (option === 'Специальные предложения'){
             SetGames(gamesList?.[option]);
         }
+        
     }
 
 
@@ -62,8 +69,8 @@ const GamesList: FC = () => {
     return(
         <div className={cl.games__list}>
             <GamesListIntro/>
-            <GamesListOptions changeGames={changeGames}/>
-            <GameListCards games={games}/>
+            <GamesListOptions setGamesState={setGamesState} changeGames={changeGames}/>
+            <GameListCards gamesState={gamesState} resetGames={resetGames} games={games}/>
         </div>
     )
 }

@@ -1,3 +1,11 @@
 .cards{
+    margin-top: 70px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.active{
     margin-top: 50px;
+    opacity: 1;
+    transition: all 0.3s ease;
 }
