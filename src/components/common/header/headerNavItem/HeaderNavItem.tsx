@@ -17,7 +17,7 @@ interface HeaderNavItemProps {
 }
 
 
-const HeaderNavItem: FC<HeaderNavItemProps> = ({linkName, children, onMouseOver, onMouseOut, id, modal, modalID, setModalID, listLinks}) => {
+const HeaderNavItem: FC<HeaderNavItemProps> = ({linkName, children, onMouseOver, onMouseOut, id, modal, modalID, setModalID, listLinks, path}) => {
     const handleOverEv = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
         onMouseOver?.()
         setModalID?.(id)
@@ -26,7 +26,7 @@ const HeaderNavItem: FC<HeaderNavItemProps> = ({linkName, children, onMouseOver,
 
     return(
         <div className={cl.header__inner__nav__item} onMouseOver={(event: React.MouseEvent<HTMLElement, MouseEvent>) => handleOverEv(event)} onMouseOut={onMouseOut}>
-            <HeaderLinks>{linkName}</HeaderLinks>
+            <HeaderLinks path={path}>{linkName}</HeaderLinks>
 
             {children}
 

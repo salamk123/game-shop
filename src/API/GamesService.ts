@@ -5,7 +5,11 @@ export default class Games {
 
         const url: string = `https://api.rawg.io/api/games?key=${apiKey}`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
@@ -23,11 +27,15 @@ export default class Games {
 
     static async getRecom() {
 
-        const apiKey: string = 'f7cc635709544e959aaf5317ccf8cf14'; 
+        const apiKey = process.env.REACT_APP_RAWG_API_KEY; 
 
         const url: string = `https://api.rawg.io/api/games?key=${apiKey}&ordering=-rating`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
@@ -45,11 +53,15 @@ export default class Games {
 
     static async getPopular() {
 
-        const apiKey: string = 'f7cc635709544e959aaf5317ccf8cf14'; 
+        const apiKey = process.env.REACT_APP_RAWG_API_KEY; 
 
         const url: string = `https://api.rawg.io/api/games?key=${apiKey}&ordering=-added`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
@@ -67,11 +79,15 @@ export default class Games {
 
     static async getSpecial() {
 
-        const apiKey: string = 'f7cc635709544e959aaf5317ccf8cf14'; 
+        const apiKey = process.env.REACT_APP_RAWG_API_KEY; 
 
         const url: string = `https://api.rawg.io/api/games?key=${apiKey}&tags=multiplayer`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
@@ -89,11 +105,15 @@ export default class Games {
 
     static async getGameInfo(id: string | undefined) {
 
-        const apiKey: string = 'f7cc635709544e959aaf5317ccf8cf14'; 
+        const apiKey = process.env.REACT_APP_RAWG_API_KEY; 
 
         const url: string = `https://api.rawg.io/api/games/${id}?key=${apiKey}`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
@@ -111,11 +131,15 @@ export default class Games {
 
     static async getGameImgs(id: string | undefined) {
 
-        const apiKey: string = 'f7cc635709544e959aaf5317ccf8cf14'; 
+        const apiKey = process.env.REACT_APP_RAWG_API_KEY;
 
         const url: string = `https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`;
         try {
-            const response = await fetch(url);
+            const response = await fetch(url, {
+                headers: {
+                    'User-Agent': 'game-shop' 
+                }
+                });
 
             if (!response.ok) {
                 throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
