@@ -65,4 +65,4 @@ API keys are not included in this repository. You need to obtain your own API ke
 
 ---
 
-**Разработано с ❤️ с использованием React и TypeScript**
+**Разработано с использованием React и TypeScript**
