@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+# Game shop 🎮
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Интерактивный каталог видеоигр, созданный с использованием React и TypeScript. Проект представляет собой SPA (Single Page Application) с удобным интерфейсом для поиска и просмотра информации об играх.
 
-## Available Scripts
+## О проекте
 
-In the project directory, you can run:
+Это не магазин, а информационный портал с базой данных видеоигр. Проект демонстрирует современные UI/UX решения и работу с внешним API.
 
-### `npm start`
+### 🚀 Технологии
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React 18** — современная библиотека для построения интерфейсов
+- **TypeScript** — типизация для надёжного кода
+- **React Router v6** — навигация без перезагрузки страницы
+- **RAWG API** — источник данных об играх
+- **CSS Modules** — изолированные стили для компонентов
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### ✨ Особенности и UI решения
 
-### `npm test`
+- **Кастомный слайдер** — плавная карусель с автоматическим переключением и ручным управлением
+- **Модальные окна** — всплывающие окна для детальной информации
+- **Динамические индикаторы** — визуальное отображение рейтингов Metacritic
+- **Плавные переходы** — анимации и hover-эффекты
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🛠️ Установка и запуск
 
-### `npm run build`
+1. Клонируйте репозиторий:
+```bash
+git clone 
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Установите зависимости:
+```bash
+npm install
+# или
+yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Создайте файл `.env` в корне проекта и добавьте ваш API ключ RAWG:
+```env
+REACT_APP_RAWG_API_KEY=ваш_ключ_сюда
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Запустите проект:
+```bash
+npm start
+# или
+yarn start
+```
 
-### `npm run eject`
+## Атрибуция / Attribution
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### 🇷🇺 Русский
+Данные и изображения игр предоставлены [RAWG](https://rawg.io/). Проект использует [RAWG API](https://rawg.io/apidocs) в соответствии с [условиями использования](https://rawg.io/tos_api).
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+API-ключи отсутствуют в репозитории. Для работы проекта необходимо получить собственный ключ на [официальном сайте RAWG](https://rawg.io/apidocs).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 🇬🇧 English
+All game data and images are provided by [RAWG](https://rawg.io/). This project uses the [RAWG API](https://rawg.io/apidocs) in compliance with the [terms of service](https://rawg.io/tos_api).
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+API keys are not included in this repository. You need to obtain your own API key at the [official RAWG website](https://rawg.io/apidocs).
 
-## Learn More
+## 📝 Лицензия / License
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Этот проект создан в образовательных целях. Все права на данные об играх принадлежат [RAWG](https://rawg.io/).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
+
+**Разработано с ❤️ с использованием React и TypeScript**
