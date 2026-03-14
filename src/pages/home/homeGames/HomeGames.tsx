@@ -33,7 +33,7 @@ const HomeGames: FC<HomeGamesProps> = ({games}) => {
                     <div className={cl.games__inner__list}>
                         
                         {games.map(game => 
-                            <HomeGamesCard makeBackImg={makeBackImg} rating={game.metacritic} name={game.name} img={game.background_image} key={game.background_image} platforms={game?.platforms}/>
+                            <HomeGamesCard id={game.id} makeBackImg={makeBackImg} rating={game.metacritic} name={game.name} img={game.background_image} key={game.background_image} platforms={game?.platforms}/>
                         )}
                         
                     </div>

@@ -58,12 +58,12 @@ const Header: FC = () => {
 
                 <div className={cl.header__inner}>
                     <nav className={cl.header__inner__nav}>
-                        <HeaderLinks>Home</HeaderLinks>
-                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={1} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Games"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
-                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={2} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Home','Articles', 'Single Articles', 'Game Reviews', 'Single Game Reviewe', 'Contact']} linkName="Pages"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
-                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={3} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Articles', 'Single Articles']} linkName="Articles"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
-                        <HeaderNavItem onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={4} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Reviews"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
-                        <HeaderLinks>Contact</HeaderLinks>
+                        <HeaderLinks path="/">Home</HeaderLinks>
+                        <HeaderNavItem path="/gamesList" onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={1} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Games"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem path='/' onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={2} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Home','Articles', 'Single Articles', 'Game Reviews', 'Single Game Reviewe', 'Contact']} linkName="Pages"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem path='/' onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={3} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Articles', 'Single Articles']} linkName="Articles"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderNavItem path='/' onMouseOver={handleMouseOverModal} onMouseOut={handleMouseOutModal} id={4} setModalID={setModalID} modalID={modalID} modal={modal} listLinks={['Game Reviews', 'Single Game Reviewe']} linkName="Reviews"><img src={arrow} className={cl.header__inner__nav__item__img}/></HeaderNavItem>
+                        <HeaderLinks path="https://rawg.io/">RAWG</HeaderLinks>
                     </nav>
 
                     <div className={cl.header__inner__media}>

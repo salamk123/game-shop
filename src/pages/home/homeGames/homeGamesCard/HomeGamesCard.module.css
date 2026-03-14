@@ -7,6 +7,7 @@
     background-color: #232323;
     margin-bottom: 1px;
     transition: all 0.4s ease;
+    text-decoration: none;
 }
 
 .games__card:hover{

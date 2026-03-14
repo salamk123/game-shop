@@ -1,0 +1,11 @@
+.intro__imgs{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 17px;
+}
+
+
+.intro__imgs__item{
+    width: 170px;
+    height: 100px;
+}

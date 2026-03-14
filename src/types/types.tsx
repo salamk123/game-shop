@@ -17,6 +17,14 @@ interface IRequire{
     recommended: string
 }
 
+interface IGenre {
+  id: number;
+  name: string;
+  slug: string;
+  games_count: number;
+  image_background: string;
+}
+
 export interface IGame {
     id: number,
     slug: string,
@@ -32,3 +40,35 @@ export interface IGame {
     playtime: number,
     platforms: IPlatforms[]
 }
+
+export interface IGameItem{
+    id: number,
+    name: string,
+    description: string, 
+    description_raw: string,
+    metacritic: number,
+    released: string,
+    updated: string,
+    background_image: string,
+    background_image_additional: string,
+    website: string,
+    rating: number,
+    platforms: IPlatforms[],
+    reviews_text_count: string,
+    platfroms: IPlatforms[],
+    genres: IGenre[];
+    twitch_count: number,
+    screenshots_count: number,
+    youtube_count: number,
+
+}
+
+
+export interface IGameImg {
+  id: number;
+  image: string;
+  width: number;
+  height: number;
+  is_deleted: boolean;
+}
+

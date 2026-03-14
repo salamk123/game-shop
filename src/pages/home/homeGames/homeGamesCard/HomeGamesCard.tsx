@@ -1,7 +1,9 @@
 import React, {FC} from "react";
 import cl from './HomeGamesCard.module.css';
+import { Link } from "react-router-dom";
 
 interface GamesCardProps {
+    id: number
     name: string,
     img: string,
     rating: number,
@@ -11,9 +13,9 @@ interface GamesCardProps {
     makeBackImg: (img: string) => void;
 }
 
-const HomeGamesCard: FC<GamesCardProps> = ({name, img, rating, platforms, makeBackImg}) => {
+const HomeGamesCard: FC<GamesCardProps> = ({name, img, rating, platforms, makeBackImg, id}) => {
     return(
-        <section className={cl.games__card} onMouseOver={() => makeBackImg?.(img)}>
+        <Link className={cl.games__card} onMouseOver={() => makeBackImg?.(img)} to={`/game/${id}`}>
             <img src={img} className={cl.games__card__img}/>
 
             <div className={cl.games__card__info}>
@@ -26,7 +28,7 @@ const HomeGamesCard: FC<GamesCardProps> = ({name, img, rating, platforms, makeBa
             </div>
 
             <div className={cl.games__card__rating}>{rating}</div>
-        </section>
+        </Link>
     )
 }
 

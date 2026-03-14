@@ -12,7 +12,8 @@ interface HeaderNavItemProps {
     modalID?: number | null;
     setModalID?: React.Dispatch<React.SetStateAction<number | null>> 
     listLinks: string[],
-    modal?: boolean
+    modal?: boolean,
+    path: string
 }
 
 
