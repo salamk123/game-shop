@@ -16,8 +16,13 @@ function App() {
   }, [])
 
   const fetchGames = async () => {
-    const response = await Games.getAll();
-    setGames(response.slice(0, 7))
+    try {
+      const response = await Games.getAll();
+      setGames(response.slice(0, 7))
+      console.log('ку')
+    } catch (error) {
+      console.log(error instanceof Error ? error.message : 'Неизвестная ошибка' )
+    }
   }
 
   return (

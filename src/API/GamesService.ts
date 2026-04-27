@@ -1,28 +1,25 @@
+import { IGame } from "../types/types";
+
 export default class Games {
-    static async getAll() {
+    static async getAll(): Promise<IGame[]> {
 
         const apiKey = process.env.REACT_APP_RAWG_API_KEY; 
 
         const url: string = `https://api.rawg.io/api/games?key=${apiKey}`;
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    'User-Agent': 'game-shop' 
-                }
-                });
-
-            if (!response.ok) {
-                throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
+        const response = await fetch(url, {
+            headers: {
+                'User-Agent': 'game-shop' 
             }
+            });
 
-            const result = await response.json();
-            
-            return result.results;
-
-        } catch (error: any) {
-            console.error('Произошла ошибка', error.message);
+        if (!response.ok) {
+            throw new Error(`Сервер вернул ошибку: ${response.status} ${response.statusText}`)
         }
-        
+
+        const result = await response.json();
+        const data: IGame[] = result.results;
+            
+        return data;
     }
 
     static async getRecom() {
