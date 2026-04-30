@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import cl from './Game.module.css';
 import { useFetching } from "../../hooks/useFetching";
 import Games from "../../API/GamesService";
-import { IGameImg, IGameItem } from "../../types/types";
+import { IGame, IGameImg, IGameItem } from "../../types/types";
 import { useParams } from "react-router-dom";
 import GameIntro from "./gameIntro/GameIntro";
 import GameInfo from "./gameInfo/GameInfo";
@@ -13,7 +13,7 @@ const Game: FC = () => {
     const [game, setGame] = useState<IGameItem>()
     const [imgs, setImgs] = useState<string[]>()
     const [fetchGame, isGameLoading, gameError] = useFetching(async () => {
-        const response = await Games.getGameInfo(params?.id);
+        const response: IGameItem = await Games.getGameInfo(params?.id);
         console.log(response)
         
         setGame(response);    
@@ -21,7 +21,7 @@ const Game: FC = () => {
     const [fetchImgs, isImgsLoading, imgsError] = useFetching( async () => {
         const data = await Games.getGameImgs(params?.id);
         const imgsList: string[] = [];
-        for(let i: number = 0; i < data.length; i++) {
+        for(let i = 0; i < data.length; i++) {
             imgsList.push(data[i].image);
         }
         setImgs(imgsList);
