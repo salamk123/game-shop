@@ -7,9 +7,11 @@ import Layout from './components/common/layout/Layout';
 import Games from './API/GamesService';
 import { IGame } from './types/types';
 import Footer from './components/common/footer/Footer';
+import { useFetching } from './hooks/useFetching';
 
 function App() {
   const [games, setGames] = useState<IGame[]>([]);
+  
 
   useEffect(() => {
     fetchGames()

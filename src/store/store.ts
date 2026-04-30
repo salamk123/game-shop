@@ -1,11 +1,17 @@
 import { configureStore } from "@reduxjs/toolkit";
-import gamesReducer from "./gamesSlice/GamesSlice";
+import { allGames, recomGames, popularGames, specialGames } from './slices';
+import singleGameReducer from "./slices/singleGameSlice/singleGameSlice";
+
 
 export const store = configureStore({
     reducer: {
-        games: gamesReducer
+        allGames: allGames.reducer,
+        recomGames: recomGames.reducer,
+        popularGames: popularGames.reducer,
+        specialGames: specialGames.reducer,
+        singleGame: singleGameReducer
     }
 })
 
 export type RootState = ReturnType<typeof store.getState>;
-export type appDispatch = typeof store.dispatch;
+export type AppDispatch = typeof store.dispatch;
