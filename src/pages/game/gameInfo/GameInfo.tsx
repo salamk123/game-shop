@@ -1,12 +1,22 @@
-import React, { FC } from "react";
+import { FC, useEffect } from "react";
 import cl from './GameInfo.module.css';
 import { IGameItem } from "../../../types/types";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { getIsSingleGameLoading, getSingleGame, loadSingleGame } from "../../../store/slices/singleGameSlice/singleGameSlice";
 
 interface GameInfoProps {
-    game: IGameItem | undefined
+    id: string | undefined;
 }
 
-const GameInfo: FC<GameInfoProps> = ({game}) => {
+const GameInfo: FC<GameInfoProps> = ({id}) => {
+    const dispatch = useAppDispatch();
+    const game = useAppSelector(getSingleGame);
+    const isGameLoading = useAppSelector(getIsSingleGameLoading);
+    
+    useEffect(() => {
+        id && dispatch(loadSingleGame(id));
+    }, [dispatch, id])
+
     return( 
         <div className={cl.game__info}>
             <div className={cl.game__info__inner}>

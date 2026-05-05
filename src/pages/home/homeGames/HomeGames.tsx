@@ -3,21 +3,25 @@ import cl from './HomeGames.module.css';
 import HomeGamesCard from "./homeGamesCard/HomeGamesCard";
 import { IGame } from "../../../types/types";
 import Loader from "../../../components/UI/loader/Loader";
+import { useAppDispatch, useAppSelector } from "../../../hooks/redux";
+import { allGames } from "../../../store/slices";
+import { allGamesSelectors } from "../../../store/selectors";
 
-interface HomeGamesProps {
-    games: IGame[]
-}
-
-const HomeGames: FC<HomeGamesProps> = ({games}) => {
+const HomeGames: FC = () => {
+    const dispatch = useAppDispatch();
+    const games: IGame[] = useAppSelector(allGamesSelectors.selectAll);
+    const isGamesLoading = useAppSelector(allGamesSelectors.selectIsLoading);
     const [img, setImg] = useState<string | null>(games?.[0]?.['background_image']);
 
     useEffect(() => {
+        dispatch(allGames.loadGames());
+
         if (games && games.length > 0 && games[0]?.background_image) {
             setImg(games?.[0]?.['background_image'])
         } else {
             setImg(null)
         }
-    }, [games])
+    }, [dispatch, games])
 
     const makeBackImg = (img: string) => {
         setImg(img)

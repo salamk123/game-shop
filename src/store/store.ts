@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { allGames, recomGames, popularGames, specialGames } from './slices';
 import singleGameReducer from "./slices/singleGameSlice/singleGameSlice";
+import imagesReducer from "./slices/imagesSlice/ImageSlice";
 
 
 export const store = configureStore({
@@ -9,7 +10,8 @@ export const store = configureStore({
         recomGames: recomGames.reducer,
         popularGames: popularGames.reducer,
         specialGames: specialGames.reducer,
-        singleGame: singleGameReducer
+        singleGame: singleGameReducer,
+        images: imagesReducer
     }
 })
 

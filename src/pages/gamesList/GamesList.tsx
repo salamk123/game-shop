@@ -1,40 +1,30 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import cl from './GamesList.module.css';
 import GamesListIntro from "./gamesListIntro/GamesListIntro";
 import { IGame } from "../../types/types";
-import Games from "../../API/GamesService";
 import GamesListOptions from "./gamesListOptions/GamesListOptions";
 import GameListCards from "./gamesListCards/GameListCards";
-import { useFetching } from "../../hooks/useFetching";
+import { useAppDispatch, useAppSelector } from "../../hooks/redux";
+import { popularGamesSelectors, recomGamesSelectors, specialGamesSelectors } from "../../store/selectors";
+import { popularGames, recomGames, specialGames } from "../../store/slices";
 
 
 const GamesList: FC = () => {
     const [games, SetGames] = useState<IGame[]>([]);
-    const [recom, setRecom] = useState<IGame[]>([]);
-    const [popular, setPopular] = useState<IGame[]>([]);
-    const [special, setSpecial] = useState<IGame[]>([]);
+
     const [gamesState, setGamesState] = useState<boolean>(false);
 
-    const [fetchRecom, isRecomLoading, recomError] = useFetching( async () => {
-        const response = await Games.getRecom();
-        setRecom(response.slice(0, 7));
-    })
+    const dispatch = useAppDispatch();
+    const recom = useAppSelector(recomGamesSelectors.selectAll).slice(0, 7);
+    const popular = useAppSelector(popularGamesSelectors.selectAll).slice(0, 7);
+    const special = useAppSelector(specialGamesSelectors.selectAll).slice(0, 7);
 
-    const [fetchPopular, isPopularLoading, popularError] = useFetching( async () => {
-        const response = await Games.getPopular();
-        setPopular(response.slice(0, 7));
-    })
-
-    const [fetchSpecial, isSpecialLoading, specialError] = useFetching( async () => {
-        const response = await Games.getSpecial();
-        setSpecial(response.slice(0, 7));
-    })
 
     useEffect(() => {
-        fetchPopular();
-        fetchRecom();
-        fetchSpecial();
-    }, [])
+        dispatch(recomGames.loadGames())
+        dispatch(popularGames.loadGames())
+        dispatch(specialGames.loadGames())
+    }, [dispatch])
 
     interface IGameList {
         "Рекомендуем": IGame[],

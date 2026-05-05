@@ -1,13 +1,24 @@
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import cl from './LayoutList.module.css';
+import { useAppDispatch, useAppSelector } from "../..//../../hooks/redux";
+import { allGamesSelectors } from "../..//../../store/selectors";
+import { allGames } from "../..//../../store/slices";
 import { IGame } from "../../../../types/types";
 
 interface LayoutListProps {
     title: string,
-    games: IGame[]
 }
 
-const LayoutList: FC<LayoutListProps> = ({title, games}) => {
+const dispatch = useAppDispatch();
+const games: IGame[] = useAppSelector(allGamesSelectors.selectAll);
+const gamesList: IGame[] = games.slice(0, 7);
+const gamesLoading: boolean = useAppSelector(allGamesSelectors.selectIsLoading);
+
+useEffect(() => {
+    dispatch(allGames.loadGames());
+}, [dispatch])
+
+const LayoutList: FC<LayoutListProps> = ({title}) => {
     return(
         <section className={cl.layout__list}>
             <div className={cl.layout__list__title}>{title}</div>

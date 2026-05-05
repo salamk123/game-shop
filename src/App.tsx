@@ -10,23 +10,6 @@ import Footer from './components/common/footer/Footer';
 import { useFetching } from './hooks/useFetching';
 
 function App() {
-  const [games, setGames] = useState<IGame[]>([]);
-  
-
-  useEffect(() => {
-    fetchGames()
-  }, [])
-
-  const fetchGames = async () => {
-    try {
-      const response = await Games.getAll();
-      setGames(response.slice(0, 7))
-      console.log('ку')
-    } catch (error) {
-      console.log(error instanceof Error ? error.message : 'Неизвестная ошибка' )
-    }
-  }
-
   return (
     <div className="App">
       <Header/>
@@ -39,7 +22,7 @@ function App() {
         </Routes>
       </main>
 
-      <Layout games={games}/>
+      <Layout/>
 
       <Footer/>
     </div>

@@ -7,14 +7,14 @@ interface MyKnownError {
     errorMessage: string
 }
 
-const imagesAdapter = createEntityAdapter();
+const imagesAdapter = createEntityAdapter<IGameImg>();
 
 const initialState = imagesAdapter.getInitialState({
     isImagesLoading: false,
     imagesError: null as string | null
 });
 
-const loadImages = createAsyncThunk<
+export const loadImages = createAsyncThunk<
     IGameImg[],
     string,
     {rejectValue: MyKnownError}
@@ -53,9 +53,9 @@ const imagesSlice = createSlice({
 })
 
 
-const getImages = (state: RootState) => imagesAdapter.getSelectors().selectAll(state.images);
-const getIsImagesLoading = (state: RootState) => state.images.isImagesLoading;
-const getImagesError = (state: RootState) => state.images.imagesError;
+export const getImages = (state: RootState) => imagesAdapter.getSelectors().selectAll(state.images);
+export const getIsImagesLoading = (state: RootState) => state.images.isImagesLoading;
+export const getImagesError = (state: RootState) => state.images.imagesError;
 
 const {reducer: imagesReducer} = imagesSlice;
 

@@ -1,14 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IGame } from "../../../types/types";
+import { IGameItem } from "../../../types/types";
 import Games from "../../../API/GamesService";
 import { RootState } from "../../store";
 
 interface MyKnownError {
-    errorMessage: string
+    errorMessage: string;
 }
 
 interface ISingleGameState {
-    entity: IGame | undefined | null;
+    entity: IGameItem | undefined | null;
     isGameLoading: boolean;
     gameError: null | string;
 }
@@ -44,8 +44,8 @@ const singleGameSlice = createSlice({
     }
 });
 
-const loadSingleGame = createAsyncThunk<
-    IGame,
+export const loadSingleGame = createAsyncThunk<
+    IGameItem,
     string,
     {rejectValue: MyKnownError}
 >('load/singleGame', async (id: string, thunkApi) => {
@@ -64,8 +64,8 @@ const loadSingleGame = createAsyncThunk<
 
 const {reducer: singleGameReducer} = singleGameSlice;
 
-const getSingleGame = (state: RootState) => state.singleGame.entity;
-const getIsSingleGameLoading = (state: RootState) => state.singleGame.isGameLoading;
-const getSingleGameError = (state: RootState) => state.singleGame.gameError;
+export const getSingleGame = (state: RootState) => state.singleGame.entity;
+export const getIsSingleGameLoading = (state: RootState) => state.singleGame.isGameLoading;
+export const getSingleGameError = (state: RootState) => state.singleGame.gameError;
 
 export default singleGameReducer
